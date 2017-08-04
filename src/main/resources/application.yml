@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: serveur de ressource
+  profiles:
+    active: test
+server:
+  port: 8000
+  additionalPorts: 8002
+
+admin:
+  port: 8002
