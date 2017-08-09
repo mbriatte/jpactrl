@@ -1,12 +1,24 @@
 package configuration;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import java.util.ArrayList;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import model.Compte;
+import service.ServiceCompte;
+
 @RestController
-@EnableAutoConfiguration
+@ComponentScan({"service"})
 public class ressourceController {
+	
+	@Autowired
+    ServiceCompte serviceCompte;
 	
 	@RequestMapping("/hello")
     public String index() {
@@ -16,6 +28,12 @@ public class ressourceController {
 	@RequestMapping("/admin")
     public String admin() {
         return "admin";
+    }
+	
+	@RequestMapping("/comptes")
+    public List<Compte> getAllComptes() {
+		return serviceCompte.findAll();
+		
     }
 	
 }

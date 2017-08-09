@@ -3,9 +3,13 @@ spring:
     name: serveur de ressource
   profiles:
     active: test
+  jpa:
+      database: POSTGRESQL
+      show-sql: true  
+  datasource:   
+     url: jdbc:postgresql://localhost/comptes 
+     username: postgres
+     password: postgres
+     driverClassName: org.postgresql.Driver
 server:
   port: 8000
-  additionalPorts: 8002
-
-admin:
-  port: 8002
