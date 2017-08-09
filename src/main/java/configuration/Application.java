@@ -10,8 +10,13 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 
 @SpringBootApplication
+
+// pour referencer le package contenant les repository JPA
 @EnableJpaRepositories("repositories")
+
+//pour referencer le package contenant les object metier
 @EntityScan("model")
+
 public class Application  extends SpringBootServletInitializer{
 	public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
